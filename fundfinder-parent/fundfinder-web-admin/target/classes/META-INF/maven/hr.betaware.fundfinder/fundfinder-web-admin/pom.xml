@@ -10,13 +10,16 @@
 		<artifactId>fundfinder-parent</artifactId>
 		<version>1.0.0-SNAPSHOT</version>
 	</parent>
-
+	
 	<dependencies>
+		
+		<!-- Fund Finder Common -->
 		<dependency>
 			<groupId>hr.betaware.fundfinder</groupId>
 			<artifactId>fundfinder-common</artifactId>
 			<version>${project.version}</version>
 		</dependency>
+		
 	</dependencies>
 
 </project>
