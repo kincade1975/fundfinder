@@ -2,8 +2,6 @@ package hr.betaware.fundfinder.article.service;
 
 import java.util.Locale;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.data.rest.webmvc.ResourceNotFoundException;
@@ -14,11 +12,11 @@ import hr.betaware.fundfinder.article.resource.ArticleResource;
 import hr.betaware.fundfinder.article.resource.ArticleResourceAssembler;
 import hr.betaware.fundfinder.jpa.domain.Article;
 import hr.betaware.fundfinder.jpa.repository.ArticleRepository;
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 @Service
 public class ArticleService {
-
-	static final Logger LOGGER = LoggerFactory.getLogger(ArticleService.class);
 
 	@Autowired
 	private MessageSource messageSource;
@@ -31,7 +29,7 @@ public class ArticleService {
 
 	@Transactional(readOnly = true)
 	public ArticleResource find(Integer id, Locale locale) {
-		LOGGER.debug("Finding article [{}]...", id);
+		log.debug("Finding article [{}]...", id);
 
 		if (id == 0) {
 			return new ArticleResource();
@@ -48,7 +46,7 @@ public class ArticleService {
 
 	@Transactional
 	public ArticleResource save(ArticleResource resource) {
-		LOGGER.debug("Saving article [{}]...", resource);
+		log.debug("Saving article [{}]...", resource);
 
 		Article entity = null;
 		if (resource.getId() == null) {
@@ -65,7 +63,7 @@ public class ArticleService {
 
 	@Transactional
 	public ArticleResource activate(Integer id, Locale locale) {
-		LOGGER.debug("Activating article [{}]...", id);
+		log.debug("Activating article [{}]...", id);
 
 		Article entity = articleRepository.findOne(id);
 		if (entity == null) {
@@ -81,7 +79,7 @@ public class ArticleService {
 
 	@Transactional
 	public ArticleResource deactivate(Integer id, Locale locale) {
-		LOGGER.debug("Deactivating article [{}]...", id);
+		log.debug("Deactivating article [{}]...", id);
 
 		Article entity = articleRepository.findOne(id);
 		if (entity == null) {
@@ -97,7 +95,7 @@ public class ArticleService {
 
 	@Transactional
 	public void delete(Integer id, Locale locale) {
-		LOGGER.debug("Deleting article [{}]...", id);
+		log.debug("Deleting article [{}]...", id);
 
 		Article entity = articleRepository.findOne(id);
 		if (entity == null) {

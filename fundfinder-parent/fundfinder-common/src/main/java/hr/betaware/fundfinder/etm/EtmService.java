@@ -9,8 +9,6 @@ import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 
 import org.apache.commons.lang3.time.DateFormatUtils;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
@@ -26,11 +24,11 @@ import freemarker.template.Configuration;
 import freemarker.template.Template;
 import hr.betaware.fundfinder.BaseProperties;
 import hr.betaware.fundfinder.email.EmailService;
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 @Service
 public class EtmService {
-
-	private static final Logger LOGGER = LoggerFactory.getLogger(EtmService.class);
 
 	private static EtmMonitor etmMonitor;
 
@@ -48,7 +46,7 @@ public class EtmService {
 
 	@PostConstruct
 	void init() {
-		LOGGER.info("Initializing ETM monitor...");
+		log.info("Initializing ETM monitor...");
 		BasicEtmConfigurator.configure(true);
 		etmMonitor = EtmManager.getEtmMonitor();
 		if (!etmMonitor.isStarted()) {
@@ -56,14 +54,14 @@ public class EtmService {
 		} else {
 			etmMonitor.reset();
 		}
-		LOGGER.info("ETM monitor successfully started");
+		log.info("ETM monitor successfully started");
 	}
 
 	@PreDestroy
 	void destroy() {
 		if (etmMonitor != null && etmMonitor.isStarted()) {
 			etmMonitor.stop();
-			LOGGER.info("ETM monitor successfully stopped");
+			log.info("ETM monitor successfully stopped");
 		}
 	}
 
@@ -94,7 +92,7 @@ public class EtmService {
 					DateFormatUtils.format(Calendar.getInstance().getTime(), baseProperties.getDateTimeFormat()));
 			StringWriter stringWriter = new StringWriter();
 			etmMonitor.render(new SimpleTextRenderer(stringWriter));
-			LOGGER.info("{}\n{}", subject, stringWriter.toString());
+			log.info("{}\n{}", subject, stringWriter.toString());
 
 			if (etmProperties.getSendEmail()) {
 				try {
@@ -108,7 +106,7 @@ public class EtmService {
 
 					emailService.send(etmProperties.getSendEmailTo(), subject, FreeMarkerTemplateUtils.processTemplateIntoString(template, model));
 				} catch (Exception e) {
-					LOGGER.error("Sending ETM e-mail failed", e);
+					log.error("Sending ETM e-mail failed", e);
 				}
 			}
 
