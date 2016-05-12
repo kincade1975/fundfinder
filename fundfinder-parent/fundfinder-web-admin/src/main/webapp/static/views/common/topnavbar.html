@@ -1,0 +1,21 @@
+<div class="row border-bottom" ng-controller="TopnavbarController">
+    <nav class="navbar navbar-fixed-top" role="navigation" style="margin-bottom: 0">
+        <div class="navbar-header">
+            <h2 class="m-l-md text-white"><img class="m-r-sm" alt="Fund Finder" src="/images/logo.png" width="40"><strong>{{ 'HEADER_MAIN' | translate }}</strong></h2>
+        </div>
+        <ul class="nav navbar-top-links navbar-right">
+            <!-- language -->
+            <li uib-dropdown>
+                <a uib-dropdown-toggle><i class="fa fa-language"></i> {{ 'LANGUAGE' | translate }}</a>
+                <ul uib-dropdown-menu class="animated fadeInRight m-t-xs">
+                    <li><a ng-click="changeLanguage('hr')"><span class="flag-icon flag-icon-hr m-r-xs"></span> {{ 'CROATIAN' | translate }}</a></li>
+                    <li><a ng-click="changeLanguage('en')"><span class="flag-icon flag-icon-gb m-r-xs"></span> {{ 'ENGLISH' | translate }}</a></li>
+                </ul>
+            </li>
+            <!-- log out -->
+            <li>
+                <a href="#" ng-click="logout()"><i class="fa fa-sign-out"></i> {{ 'LOGOUT' | translate }}</a>
+            </li>
+        </ul>
+    </nav>
+</div>

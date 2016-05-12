@@ -1,20 +1,18 @@
 package hr.betaware.fundfinder.jpa.domain;
 
-import java.util.Date;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.EntityListeners;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import org.springframework.data.annotation.CreatedBy;
-import org.springframework.data.annotation.CreatedDate;
-import org.springframework.data.annotation.LastModifiedBy;
-import org.springframework.data.annotation.LastModifiedDate;
-import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+import org.hibernate.envers.Audited;
+
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -22,10 +20,13 @@ import lombok.Setter;
 import lombok.ToString;
 
 @Entity
-@EntityListeners(AuditingEntityListener.class)
 @Table(name = "article")
 @NoArgsConstructor @Getter @Setter @ToString
-public class Article {
+@Audited
+@JsonInclude(Include.NON_NULL)
+public class Article extends AbstractEntity {
+
+	public enum ArticleStatus { ACTIVE, INACTIVE };
 
 	@Id
 	@Column(name = "id")
@@ -38,23 +39,8 @@ public class Article {
 	@Column(name = "text", nullable = true, columnDefinition = "text")
 	private String text;
 
-	@Column(name = "active", nullable = false)
-	private Boolean active;
-
-	@Column(name = "creation_date", nullable = false)
-	@CreatedDate
-	private Date creationDate;
-
-	@Column(name = "created_by", nullable = true, columnDefinition = "varchar(128)")
-	@CreatedBy
-	private String createdBy;
-
-	@Column(name = "last_modified_date", nullable = false)
-	@LastModifiedDate
-	private Date lastModifiedDate;
-
-	@Column(name = "last_modified_by", nullable = true, columnDefinition = "varchar(128)")
-	@LastModifiedBy
-	private String lastModifiedBy;
+	@Column(name = "status", nullable = false, columnDefinition="varchar(32)")
+	@Enumerated(EnumType.STRING)
+	private ArticleStatus status;
 
 }

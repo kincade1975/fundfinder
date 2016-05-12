@@ -6,6 +6,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import hr.betaware.fundfinder.jpa.domain.Article.ArticleStatus;
 import lombok.Data;
 
 @JsonInclude(Include.NON_NULL)
@@ -21,8 +22,8 @@ public class ArticleResource {
 	@JsonProperty("text")
 	private String text;
 
-	@JsonProperty("active")
-	private Boolean active;
+	@JsonProperty("status")
+	private ArticleStatus status;
 
 	@JsonProperty("creationDate")
 	private Date creationDate;

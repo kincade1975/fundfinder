@@ -1,4 +1,5 @@
 <factorypath>
+    <factorypathentry kind="VARJAR" id="M2_REPO/commons-codec/commons-codec/1.10/commons-codec-1.10.jar" enabled="true" runInBatchMode="false"/>
     <factorypathentry kind="VARJAR" id="M2_REPO/org/springframework/boot/spring-boot-configuration-processor/1.4.0.M2/spring-boot-configuration-processor-1.4.0.M2.jar" enabled="true" runInBatchMode="false"/>
     <factorypathentry kind="VARJAR" id="M2_REPO/org/json/json/20140107/json-20140107.jar" enabled="true" runInBatchMode="false"/>
     <factorypathentry kind="VARJAR" id="M2_REPO/org/springframework/spring-core/4.3.0.RC1/spring-core-4.3.0.RC1.jar" enabled="true" runInBatchMode="false"/>
@@ -83,5 +84,6 @@
     <factorypathentry kind="VARJAR" id="M2_REPO/joda-time/joda-time/2.9.3/joda-time-2.9.3.jar" enabled="true" runInBatchMode="false"/>
     <factorypathentry kind="VARJAR" id="M2_REPO/fm/void/jetm/jetm/1.2.3/jetm-1.2.3.jar" enabled="true" runInBatchMode="false"/>
     <factorypathentry kind="VARJAR" id="M2_REPO/fm/void/jetm/jetm-optional/1.2.3/jetm-optional-1.2.3.jar" enabled="true" runInBatchMode="false"/>
+    <factorypathentry kind="VARJAR" id="M2_REPO/org/webjars/flag-icon-css/0.7.1/flag-icon-css-0.7.1.jar" enabled="true" runInBatchMode="false"/>
     <factorypathentry kind="PLUGIN" id="org.eclipse.jst.ws.annotations.core" enabled="true" runInBatchMode="false"/>
 </factorypath>

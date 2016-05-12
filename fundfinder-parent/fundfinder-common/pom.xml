@@ -11,4 +11,27 @@
 		<version>1.0.0-SNAPSHOT</version>
 	</parent>
 
+	<dependencies>
+
+		<!-- Apache Commons Codec -->
+		<dependency>
+			<groupId>commons-codec</groupId>
+			<artifactId>commons-codec</artifactId>
+		</dependency>
+
+		<!-- Spring Data Envers -->
+		<dependency>
+			<groupId>org.springframework.data</groupId>
+			<artifactId>spring-data-envers</artifactId>
+		</dependency>
+
+		<!-- User Type For Joda Time With Hibernate -->
+		<dependency>
+			<groupId>org.jadira.usertype</groupId>
+			<artifactId>usertype.jodatime</artifactId>
+			<version>2.0.1</version>
+		</dependency>
+
+	</dependencies>
+
 </project>
