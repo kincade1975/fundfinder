@@ -51,6 +51,13 @@ function config($provide, $stateProvider, $httpProvider, $urlRouterProvider) {
 	        templateUrl: "views/articles/overview.html",
 	        controller: 'ArticleOverviewController',
 	        data: { pageTitle: 'Articles Overview' }
+	    })
+		.state('articles.details', {
+	        url: "/details/:id",
+	        templateUrl: "views/articles/details.html",
+	        controller: 'ArticleDetailsController',
+	        params: { 'id' : null },
+	        data: { pageTitle: 'Article Details' }
 	    });
 }
 

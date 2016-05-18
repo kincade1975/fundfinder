@@ -134,3 +134,24 @@
 .glyphicon.fa {
     font-family: 'Glyphicons Halflings';
 }
+
+/* ************************************************************ */
+/*  bootstrap modal dialog                                      */
+/* ************************************************************ */
+.bootstrap-dialog.type-default .modal-header {
+    background-color: #fafafa;
+}
+
+.bootstrap-dialog.type-default .modal-footer {
+    background-color: #fafafa;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+/* ************************************************************ */
+/*  fund finder classes                                         */
+/* ************************************************************ */
+.ff-div-button {
+	text-align: right;
+    border-top: solid 1px #f0f0f0 !important;	
+}

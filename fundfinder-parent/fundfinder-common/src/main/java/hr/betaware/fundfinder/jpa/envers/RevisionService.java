@@ -19,7 +19,7 @@ public class RevisionService extends BaseService {
 	@Transactional(readOnly = true)
 	public List<RevisionResource> getRevisions(Class<?> clazz, Integer id) {
 		List<RevisionResource> result = new ArrayList<>();
-		log.debug("Getting revisions for [{}] with ID [{}]", clazz.getSimpleName(), id);
+		log.debug("Getting revisions for entity [{}] with ID [{}]", clazz.getSimpleName(), id);
 		List<Object[]> objects = AuditReaderFactory.get(entityManager).createQuery().forRevisionsOfEntity(clazz, false, true).getResultList();
 		for (Object[] object : objects) {
 			RevisionResource resource = new RevisionResource();

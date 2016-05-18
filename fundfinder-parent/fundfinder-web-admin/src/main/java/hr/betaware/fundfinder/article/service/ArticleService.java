@@ -121,7 +121,7 @@ public class ArticleService extends BaseService {
 	}
 
 	@Transactional(readOnly = true)
-	public PageableResource<ArticleResource> page(UiGridResource resource) {
+	public PageableResource<ArticleResource> getPage(UiGridResource resource) {
 		Page<Article> page = null;
 
 		List<Specification<Article>> specifications = new ArrayList<>();
