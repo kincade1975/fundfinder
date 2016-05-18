@@ -6,7 +6,7 @@
 	<artifactId>fundfinder-parent</artifactId>
 	<version>1.0.0-SNAPSHOT</version>
 	<packaging>pom</packaging>
-	<name>Fund Finder</name>
+	<name>Fund Finder</name> 
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
