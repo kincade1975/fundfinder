@@ -21,10 +21,10 @@
 
 	<dependencies>
 
-		<!-- Fund Finder Common -->
+		<!-- Fund Finder Core -->
 		<dependency>
 			<groupId>hr.betaware.fundfinder</groupId>
-			<artifactId>fundfinder-common</artifactId>
+			<artifactId>fundfinder-core</artifactId>
 			<version>${project.version}</version>
 		</dependency>
 

@@ -176,7 +176,7 @@
 
 	<!-- MODULES -->
 	<modules>
-		<module>fundfinder-common</module>
+		<module>fundfinder-core</module>
 		<module>fundfinder-web-admin</module>
 		<module>fundfinder-web-user</module>
 	</modules>
