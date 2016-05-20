@@ -271,7 +271,7 @@ function ArticleOverviewController($rootScope, $scope, $state, $log, $timeout, $
 	            	icon: 'fa fa-check',
 	                cssClass: 'btn-primary',
 	                action: function(dialog) {
-	                	ArticlesService.delete(4)
+	                	ArticlesService.delete(entity.id)
 		    				.success(function(data, status) {
 		    					if (status == 200) {
 		    						toastr.success($translate('ACTION_DELETE_SUCCESS_MESSAGE', { entity: $translate('ENTITY_ARTICLE') }));
